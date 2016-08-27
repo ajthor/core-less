@@ -1,0 +1,27 @@
+//
+// Core.less
+// =======================================
+// Core styles and mixins for rapid LESS development.
+
+
+// Styles:
+// - normalize.less
+// - base.less
+// - buttons.less
+// - layout.less
+
+@import "normalize.less";
+
+@import "variables.less";
+@import "base.less";
+
+@import "mixins/mixins.less";
+
+@import "buttons/buttons.less";
+
+// FontAwesome import.
+@import (reference) "../node_modules/font-awesome/less/font-awesome.less";
+@fa-font-path: "../fonts";
+
+// Octicons import.
+@import (reference) "../node_modules/octicons/build/font/octicons.min.css";

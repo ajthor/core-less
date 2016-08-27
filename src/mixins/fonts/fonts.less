@@ -1,0 +1,14 @@
+//
+// Font Mixins
+// --------------------------------------------------
+
+.default-font(@font, @font-size) {
+  font-family: @font;
+  font-size: @font-size;
+  font-weight: normal;
+  color: @default-color;
+}
+
+.invert-color(@color) {
+  color: spin(@color, 180);
+}

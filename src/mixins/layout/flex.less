@@ -1,0 +1,54 @@
+//
+// Layout Mixins
+// --------------------------------------------------
+
+// Flex Containers
+.flex-container(@direction: column) {
+  position: relative;
+  display: flex;
+  flex-direction: @direction;
+  overflow: hidden;
+
+  // &-scrollable(@direction) {
+  //   flex-wrap: nowrap;
+  //   overflow: auto;
+  // }
+}
+
+// Flex Items (Children)
+.flex-item {
+  flex: 1 1 auto;
+
+  &-zero {
+    flex: 1 1 0%;
+  }
+
+  &-static {
+    flex: 0 0 auto;
+  }
+}
+
+// For taking items out of the flex-flow.
+.break-flex {
+  display: block;
+
+  &-inline {
+    display: inline-block;
+  }
+}
+
+// Flex Lists
+.flex-list(@direction: column) {
+  .flex-container(@direction);
+  .flex-item-static;
+  justify-content: flex-start;
+
+  // Flex List-Items
+  &-item {
+    .break-flex;
+
+    &-horizontal {
+      .break-flex-inline;
+    }
+  }
+}
