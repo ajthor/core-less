@@ -29,3 +29,14 @@
 //   // left: 50%;
 //   // transform: translate(-50%, -50%);
 // }
+// Must supply a container height for this one to work. Otherwise, you get a
+// container that looks like a column in the middle of the page. 
+.position(@position) when (@position = "absolute-center") {
+  margin: auto;
+  position: absolute;
+  .trbl(0);
+
+  & {
+    position: relative;
+  }
+}

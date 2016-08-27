@@ -41,32 +41,30 @@ button, .button, [role="button"] {
   		margin-right: 0;
   	}
   }
+}
 
-  &.btn {
-    border: none;
+.btn {
+  border: none;
 
-    &-primary {
-      background-color: @button-primary-background-color;
-      color: #fff;
+  &-primary {
+    .background-color(@button-primary-background-color);
 
-      &:hover, &:focus {
-        background-image: linear-gradient(to bottom, @button-primary-background-color, darken(@button-primary-background-color, 10%));
-      }
-    }
-
-    &-link {
-      background-color: inherit;
-      color: inherit;
-
-      &:hover, &:focus {
-        color: @button-link-color;
-      }
-
-      &:active {
-        box-shadow: inherit;
-        color: #000;
-      }
+    &:hover, &:focus {
+      background-image: linear-gradient(to bottom, @button-primary-background-color, darken(@button-primary-background-color, 10%));
     }
   }
 
+  &-link {
+    background-color: inherit;
+    color: inherit;
+
+    &:hover, &:focus {
+      color: @button-link-color;
+    }
+
+    &:active {
+      box-shadow: inherit;
+      color: @default-color-dark;
+    }
+  }
 }
