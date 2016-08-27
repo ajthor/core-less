@@ -1,32 +1,35 @@
-.modal {
-  .overlay(center);
-  position: absolute;
+.modal, [role="modal"] {
+  .overlay(top-center);
+  // Cool box-shadow and emphasis while the window is in focus with the mouse.
+  .z-index(1);
+  .z-hover-transition(2);
+
+  position: relative;
   padding: 1em 0.5em;
-  z-index: 10;
+  border-radius: 2px;
 
   // Use pseudo-elements to create the overlay background and
   // background container.
   &::before {
+    .position("fill");
+    .z-index(0);
     content: "";
+    display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    border-radius: 5px;
     background-color: @modal-background-color;
+    border-radius: 2px;
   }
 
   &::after {
+    .position("fill");
+    .z-index(-1);
     content: "";
     display: block;
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(128, 128, 128, 0.25);
-    z-index: -1;
+    background-color: hsla(0, 0, 0, 0.1);
+  }
+
+  &-contents {
+    position: relative;
   }
 }

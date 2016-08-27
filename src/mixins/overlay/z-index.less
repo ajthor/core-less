@@ -1,38 +1,44 @@
+// Z-shadows are based on Google's Marterial Design specification. This helper
+// makes it easy to use the design and maintains consistent z-index values for
+// components so that they are easy to use in LESS.
+.z-shadow(@index) when (@index =< 0) {
+  box-shadow: unset;
+}
+.z-shadow(@index) when (@index = 1) {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.z-shadow(@index) when (@index = 2) {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16),
+  0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.z-shadow(@index) when (@index = 3) {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19),
+  0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.z-shadow(@index) when (@index = 4) {
+  box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.z-shadow(@index) when (@index >= 5) {
+  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.30),
+  0 15px 22px rgba(0, 0, 0, 0.22);
+}
+
 .z-index(@index: 0) {
   z-index: @index;
   // Apply a box-shadow for components which are above the page 'plane'.
-  .shadow(@index) when (@index = 0) {
-    box-shadow: none;
-  }
-  .shadow(@index) when (@index = 1) {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-                0 1px 2px rgba(0, 0, 0, 0.24);
-  }
-  .shadow(@index) when (@index = 2) {
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16),
-                0 3px 6px rgba(0, 0, 0, 0.23);
-  }
-  .shadow(@index) when (@index = 3) {
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19),
-                0 6px 6px rgba(0, 0, 0, 0.23);
-  }
-  .shadow(@index) when (@index = 4) {
-    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25),
-                0 10px 10px rgba(0, 0, 0, 0.22);
-  }
-  .shadow(@index) when (@index = 5) {
-    box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.30),
-                0 15px 22px rgba(0, 0, 0, 0.22);
-  }
-  .shadow(@index);
+  .z-shadow(@index);
 
-  .hover-transition(@index) {
+  // The `z-hover-transition` mixin allows the material to raise up to another
+  // z-index on hover and uses a transition for smoothness.
+  .z-hover-transition(@index) {
     & {
       transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     }
 
     &:hover {
-      .shadow(@index);
+      .z-shadow(@index);
     }
   }
 }

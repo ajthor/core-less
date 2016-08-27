@@ -1,0 +1,31 @@
+.trbl(@t: 0; @r: @t; @b: @t; @l: @r) {
+  position: absolute;
+  top: @t;
+  right: @r;
+  bottom: @b;
+  left: @l;
+}
+
+.position(@position) when (@position = "fill") {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.position(@position) when (@position = "top") {
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.position(@position) when (@position = "top-center") {
+  position: relative;
+  margin: 5em auto;
+}
+// Still working on this one.
+// .position() when (@position = "center") {
+//   // top: 50%;
+//   // left: 50%;
+//   // transform: translate(-50%, -50%);
+// }
