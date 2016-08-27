@@ -9,46 +9,42 @@
   flex-direction: @direction;
   overflow: hidden;
 
-  // &-scrollable(@direction) {
-  //   flex-wrap: nowrap;
-  //   overflow: auto;
-  // }
+  // Contitionally set the `@horizontal` variable for use in classes with this
+  // class as a parent. See `.flex-list-item` below.
+  .horizontal() when (@direction = row) {
+    @horizontal: true;
+  }
+  .horizontal() when (@direction = column) {
+    @horizontal: false;
+  }
+  .horizontal();
+
+  // Mixin available to any class which uses the `.flex-container` mixin.
+  .scrollable() {
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
 }
 
 // Flex Items (Children)
-.flex-item {
-  flex: 1 1 auto;
-
-  &-zero {
-    flex: 1 1 0%;
-  }
-
-  &-static {
-    flex: 0 0 auto;
-  }
-}
-
-// For taking items out of the flex-flow.
-.break-flex {
-  display: block;
-
-  &-inline {
-    display: inline-block;
-  }
+.flex(@grow: 1; @shrink: 1; @basis: auto) {
+  flex-basis: @arguments;
 }
 
 // Flex Lists
 .flex-list(@direction: column) {
   .flex-container(@direction);
-  .flex-item-static;
+  .flex(1, 1, auto);
+
   justify-content: flex-start;
+}
 
-  // Flex List-Items
-  &-item {
-    .break-flex;
-
-    &-horizontal {
-      .break-flex-inline;
-    }
+// Flex List-Items
+.flex-list-item() {
+  & when (@horizontal = true) {
+    display: inline-block;
+  }
+  & when (@horizontal = false) {
+    display: block;
   }
 }

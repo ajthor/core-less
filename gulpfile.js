@@ -3,8 +3,8 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 
 const paths = {
-  entry: 'styles/core.less',
-  styles: 'styles/**/*.less'
+  entry: 'src/core.less',
+  styles: 'src/**/*.less'
 }
 
 gulp.task('build', () =>
