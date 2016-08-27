@@ -1,15 +1,11 @@
 @hidden-names: visible, expanded, open;
 
-template, .hidden, [hidden] {
-  display: none !important;
-}
-
 // Loop to generate toggle mixins.
 .generate-hidden(@i: length(@hidden-names)) when (@i > 0) {
   @name: extract(@hidden-names, @i);
   .toggle-@{name} {
     display: none;
-    &.@{name} {
+    &.@{name}, &:target {
       display: block;
     }
   }

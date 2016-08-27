@@ -1,0 +1,32 @@
+.modal {
+  .overlay(center);
+  position: absolute;
+  padding: 1em 0.5em;
+  z-index: 10;
+
+  // Use pseudo-elements to create the overlay background and
+  // background container.
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background-color: @modal-background-color;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0.25);
+    z-index: -1;
+  }
+}
