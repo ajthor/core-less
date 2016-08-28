@@ -1,0 +1,50 @@
+//
+// Layout Mixins
+// --------------------------------------------------
+
+// Flex Containers
+.flex-container(@direction: column) {
+  position: relative;
+  display: flex;
+  flex-direction: @direction;
+  overflow: hidden;
+
+  // Contitionally set the `@horizontal` variable for use in classes with this
+  // class as a parent. See `.flex-list-item` below.
+  .horizontal(@direction) when (@direction = row) or (@direction = row-reverse){
+    @horizontal: true;
+  }
+  .horizontal(@direction) when (@direction = column) or (@direction = column-reverse) {
+    @horizontal: false;
+  }
+  .horizontal(@direction);
+
+  // Mixin available to any class which uses the `.flex-container` mixin.
+  #scrollable() {
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+}
+
+// Flex Items (Children)
+.flex(@grow: 1; @shrink: 1; @basis: auto) {
+  flex-basis: @arguments;
+}
+
+// Flex Lists
+.flex-list(@direction: column) {
+  .flex-container(@direction);
+  .flex(1, 1, auto);
+
+  justify-content: flex-start;
+}
+
+// Flex List-Items
+.flex-list-item() {
+  & when (@horizontal = true) {
+    display: inline-block;
+  }
+  & when (@horizontal = false) {
+    display: block;
+  }
+}

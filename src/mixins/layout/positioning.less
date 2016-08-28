@@ -1,0 +1,42 @@
+.trbl(@t: 0; @r: @t; @b: @t; @l: @r) {
+  position: absolute;
+  top: @t;
+  right: @r;
+  bottom: @b;
+  left: @l;
+}
+
+.position(@position) when (@position = "fill") {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.position(@position) when (@position = "top") {
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.position(@position) when (@position = "top-center") {
+  position: relative;
+  margin: 5em auto;
+}
+// Still working on this one.
+// .position() when (@position = "center") {
+//   // top: 50%;
+//   // left: 50%;
+//   // transform: translate(-50%, -50%);
+// }
+// Must supply a container height for this one to work. Otherwise, you get a
+// container that looks like a column in the middle of the page. 
+.position(@position) when (@position = "absolute-center") {
+  margin: auto;
+  position: absolute;
+  .trbl(0);
+
+  & {
+    position: relative;
+  }
+}

@@ -1,0 +1,17 @@
+.background-color(@color) when (iscolor(@color)) {
+  background-color: @color;
+
+  // Prefer lighter font colors over darker ones. 
+  .flip-color(@color) when (lightness(@color) > 60%) {
+    color: @default-color-dark;
+  }
+  .flip-color(@color) when (lightness(@color) =< 60%) {
+    color: @default-color-light;
+  }
+
+  .flip-color(@color);
+}
+
+.color(@color) when (iscolor(@color)) {
+  color: @color;
+}

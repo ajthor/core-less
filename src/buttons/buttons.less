@@ -1,0 +1,70 @@
+button, .button, [role="button"] {
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: @button-color;
+  border: 1px solid @button-border-color;
+  background-color: @button-background-color;
+
+  border-radius: 2px;
+
+  font-family: inherit;
+  font-size: 100%;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.15) inset, 0 0 6px hsla(0, 0%, 0%, 0.2) inset;
+    border-color: #000\9;
+  }
+
+  &.disabled {
+    border: none;
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &.button-icon {
+    &:first-child { margin-right: 0.5em; }
+  	&:last-child  { margin-left:  0.5em; }
+  	&:only-child {
+  		margin-left: 0;
+  		margin-right: 0;
+  	}
+  }
+}
+
+.btn {
+  border: none;
+
+  &-primary {
+    .background-color(@button-primary-background-color);
+
+    &:hover, &:focus {
+      background-image: linear-gradient(to bottom, @button-primary-background-color, darken(@button-primary-background-color, 10%));
+    }
+  }
+
+  &-link {
+    background-color: inherit;
+    color: inherit;
+
+    &:hover, &:focus {
+      color: @button-link-color;
+    }
+
+    &:active {
+      box-shadow: inherit;
+      color: @default-color-dark;
+    }
+  }
+}

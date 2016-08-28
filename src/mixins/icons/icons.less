@@ -1,0 +1,31 @@
+//
+// Icon Mixins
+// --------------------------------------------------
+
+.icon() {
+  display: inline-block;
+  padding: 0.25em 0.25em;
+  vertical-align: middle;
+  font-weight: normal;
+  font-style: normal;
+  font-size: @icon-font-size;
+  display: inline;
+}
+
+.fontawesome-icon(@name, @unicode) {
+  @identifier: e(@name);
+  .icon-@{identifier} {
+    .icon();
+    font-family: FontAwesome;
+    content: "\\@{unicode}";
+  }
+}
+
+.octicons-icon(@name, @unicode) {
+  @identifier: e(@name);
+  .icon-@{identifier} {
+    .icon();
+    font-family: 'Octicons';
+    content: "\\@{unicode}";
+  }
+}
