@@ -1,4 +1,4 @@
-# less-core
+# core-less
 
 __Core__ is a library built using [LESS](http://lesscss.org/#), leveraging the best of the currently available style frameworks to create a minimal style library for use in modern web development.
 
