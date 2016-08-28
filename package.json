@@ -1,6 +1,6 @@
 {
   "name": "core-less",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Core styles for LESS.",
   "main": "dist/core.css",
   "scripts": {
