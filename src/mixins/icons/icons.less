@@ -15,7 +15,7 @@
 .fontawesome-icon(@name, @unicode) {
   @identifier: e(@name);
   .icon-@{identifier} {
-    .icon;
+    .icon();
     font-family: FontAwesome;
     content: "\\@{unicode}";
   }
@@ -24,7 +24,7 @@
 .octicons-icon(@name, @unicode) {
   @identifier: e(@name);
   .icon-@{identifier} {
-    .icon;
+    .icon();
     font-family: 'Octicons';
     content: "\\@{unicode}";
   }

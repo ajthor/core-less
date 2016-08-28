@@ -11,13 +11,13 @@
 
   // Contitionally set the `@horizontal` variable for use in classes with this
   // class as a parent. See `.flex-list-item` below.
-  #horizontal() when (@direction = row) {
+  .horizontal(@direction) when (@direction = row) or (@direction = row-reverse){
     @horizontal: true;
   }
-  #horizontal() when (@direction = column) {
+  .horizontal(@direction) when (@direction = column) or (@direction = column-reverse) {
     @horizontal: false;
   }
-  #horizontal();
+  .horizontal(@direction);
 
   // Mixin available to any class which uses the `.flex-container` mixin.
   #scrollable() {
