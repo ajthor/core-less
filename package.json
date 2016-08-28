@@ -1,6 +1,6 @@
 {
-  "name": "less-core",
-  "version": "0.0.0",
+  "name": "core-less",
+  "version": "0.1.0",
   "description": "Core styles for LESS.",
   "main": "dist/core.css",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajthor/less-core.git"
+    "url": "git+https://github.com/ajthor/core-less.git"
   },
   "keywords": [
     "less",
@@ -18,9 +18,9 @@
   "author": "ajthor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ajthor/less-core/issues"
+    "url": "https://github.com/ajthor/core-less/issues"
   },
-  "homepage": "https://github.com/ajthor/less-core#readme",
+  "homepage": "https://github.com/ajthor/core-less#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-less": "^3.1.0",
